@@ -22,6 +22,11 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 
+// Add users route
+app.get("/api/users", (req, res) => {
+  res.json([{ id: 1, name: "Test User" }]);
+});
+
 // ✅ Protected test route to confirm token verification
 app.get("/api/admin/dashboard", verifyToken, (req, res) => {
   res.json({

@@ -25,14 +25,9 @@ export async function testConnection() {
 }
 
 // Initialize Sequelize (now the DB definitely exists)
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialect: process.env.DIALECT || "postgres",
-  dialectOptions: {
-    ssl: {
-      require: true, // Render’s PostgreSQL requires SSL
-      rejectUnauthorized: false,
-    },
-  },
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+  host: process.env.DB_HOST,
+  dialect: process.env.DIALECT || "mysql",
   logging: false, // optional: turn off SQL logging in console
 });
 
