@@ -1,10 +1,12 @@
 // models/Admin.js
+import sequelize from "../config/db.js";
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
 
 const Admin = sequelize.define("Admin", {
   username: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING, 
+    //my bad guys
     allowNull: false,
     unique: true,
   },
